@@ -4,9 +4,7 @@
   "description": "Mantasha Beg's portfolio - AI/ML Engineer & Software Developer",
   "main": "6h/index.html",
   "scripts": {
-    "start": "python -m http.server 8000",
-    "build": "echo 'Static site - no build needed'",
-    "deploy": "vercel"
+    "start": "python -m http.server 8000"
   },
   "keywords": [
     "portfolio",
