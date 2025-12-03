@@ -1,18 +1,33 @@
-{
-  "version": 2,
-  "public": true,
-  "builds": [
-    {
-      "src": "6h/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/6h/$1"
-    },
-    {
+{{
+
+  "version": 2,  "version": 2,
+
+  "builds": [  "public": true,
+
+    {  "builds": [
+
+      "src": "6h",    {
+
+      "use": "@vercel/static"      "src": "6h/**",
+
+    }      "use": "@vercel/static"
+
+  ],    }
+
+  "routes": [  ],
+
+    {  "routes": [
+
+      "src": "/(.*)",    {
+
+      "dest": "6h/$1"      "src": "/(.*)",
+
+    }      "dest": "/6h/$1"
+
+  ]    },
+
+}    {
+
       "src": "/6h/(.*)",
       "dest": "/6h/index.html"
     }
