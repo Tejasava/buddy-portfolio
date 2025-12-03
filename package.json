@@ -1,0 +1,27 @@
+{
+  "name": "mantasha-beg-portfolio",
+  "version": "1.0.0",
+  "description": "Mantasha Beg's portfolio - AI/ML Engineer & Software Developer",
+  "main": "6h/index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "ai",
+    "machine-learning",
+    "software-engineer"
+  ],
+  "author": "Mantasha Beg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Moonmakere/portfolio.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

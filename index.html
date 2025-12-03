@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantasha Beg - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --glow-primary: rgba(236, 72, 153, 0.7);
+            --glow-secondary: rgba(167, 139, 250, 0.6);
+            --neon-pink: rgba(236, 72, 153, 0.9);
+            --neon-purple: rgba(167, 139, 250, 0.9);
+            --neon-blue: rgba(147, 197, 253, 0.8);
+            --neon-cyan: rgba(34, 211, 238, 0.8);
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0a0118;
+            color: #f1f5f9;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enhanced AI-themed animated background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(167, 139, 250, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+            animation: aiGlow 10s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes aiGlow {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Animated Grid Background */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(236, 72, 153, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(236, 72, 153, 0.08) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0px 0px; opacity: 0.4; }
+            50% { opacity: 0.2; }
+            100% { background-position: 60px 60px; opacity: 0.4; }
+        }
+
+        /* AI Neural Network Lines */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .neural-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            animation: neuralPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { opacity: 0.2; transform: scaleX(0.8); }
+            50% { opacity: 0.6; transform: scaleX(1.2); }
+        }
+
+        /* AI Brain Nodes - Replacing Particles */
+        .ai-nodes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .ai-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-pink);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--neon-pink);
+            animation: nodeFloat 6s infinite ease-in-out;
+        }
+
+        .ai-node::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--neon-purple);
+            border-radius: 50%;
+            animation: nodePulse 2s infinite ease-in-out;
+        }
+
+        @keyframes nodeFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            25% { transform: translate(30px, -30px) scale(1.3); opacity: 1; }
+            50% { transform: translate(-20px, -60px) scale(0.7); opacity: 0.4; }
+            75% { transform: translate(20px, -30px) scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Binary Rain Effect */
+        .binary-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .binary-digit {
+            position: absolute;
+            color: var(--neon-cyan);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            animation: binaryFall 8s linear infinite;
+        }
+
+        @keyframes binaryFall {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Scroll Animation Classes */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.21, 0.61, 0.35, 1);
+        }
+
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 0.8s cubic-bezier(0.21, 0.61, 0.35, 1);
+        }
+
+        .scroll-animate-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 0.8s cubic-bezier(0.21, 0.61, 0.35, 1);
+        }
+
+        .scroll-animate-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.21, 0.61, 0.35, 1);
+        }
+
+        .scroll-animate-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 1, 24, 0.9);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+            box-shadow: 0 5px 30px rgba(236, 72, 153, 0.2);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px var(--glow-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #f1f5f9;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-pink);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--neon-pink);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--glow-primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(241, 245, 249, 0.8);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(236, 72, 153, 0.1);
+            border: 2px solid var(--neon-pink);
+            border-radius: 50%;
+            transition: all 0.3s;
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            background: var(--neon-pink);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px var(--glow-primary);
+        }
+
+        /* Profile Image with Photo */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .glow-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            animation: pulse 3s infinite;
+            filter: blur(20px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 0.3; }
+        }
+
+        .profile-img {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899, #a78bfa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(236, 72, 153, 0.5),
+                        inset 0 0 30px rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section Base Styles */
+        .section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* About Section */
+        .about-content {
+            background: rgba(30, 27, 75, 0.6);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.2);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: rgba(241, 245, 249, 0.9);
+        }
+
+        /* Experience Cards Grid */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .exp-card {
+            background: rgba(30, 27, 75, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .exp-card:hover::before {
+            left: 100%;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-pink);
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3);
+        }
+
+        .exp-card h3 {
+            color: var(--neon-pink);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .exp-card .date {
+            color: var(--neon-purple);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .exp-card ul {
+            margin: 1rem 0 1rem 1.5rem;
+            line-height: 1.8;
+            color: rgba(241, 245, 249, 0.85);
+        }
+
+        .exp-card .tools {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(236, 72, 153, 0.2);
+            font-style: italic;
+            color: rgba(167, 139, 250, 0.9);
+            font-size: 0.95rem;
+        }
+
+        /* Futuristic Carousel Styles */
+        .carousel-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            perspective: 2000px;
+            padding: 4rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.75s cubic-bezier(0.21, 0.61, 0.35, 1);
+            transform-style: preserve-3d;
+        }
+
+        .carousel-card {
+            min-width: 350px;
+            max-width: 350px;
+            margin: 0 25px;
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.85), rgba(15, 10, 30, 0.9));
+            border-radius: 1.2rem;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(236, 72, 153, 0.2);
+            transition: all 0.6s cubic-bezier(0.21, 0.61, 0.35, 1);
+            transform-origin: center center;
+            position: relative;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .carousel-card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent 0%, var(--neon-pink) 25%, var(--neon-purple) 50%, var(--neon-blue) 75%, transparent 100%);
+            z-index: -1;
+            border-radius: 1.3rem;
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: borderGlow 6s linear infinite;
+            background-size: 300% 300%;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; opacity: 0.3; }
+            50% { background-position: 100% 50%; opacity: 0.6; }
+            100% { background-position: 0% 50%; opacity: 0.3; }
+        }
+
+        .carousel-card.is-active::before {
+            opacity: 1;
+        }
+
+        .carousel-card:not(.is-active) {
+            transform: scale(0.8) rotateY(35deg) translateZ(-100px);
+            opacity: 0.45;
+            filter: saturate(0.6) brightness(0.7);
+        }
+
+        .carousel-card.is-prev {
+            transform-origin: right center;
+            transform: scale(0.75) rotateY(45deg) translateX(-80px) translateZ(-150px);
+        }
+
+        .carousel-card.is-next {
+            transform-origin: left center;
+            transform: scale(0.75) rotateY(-45deg) translateX(80px) translateZ(-150px);
+        }
+
+        .carousel-card.is-active {
+            transform: scale(1) rotateY(0) translateZ(0);
+            opacity: 1;
+            z-index: 20;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow-primary);
+        }
+
+        .card-image-container {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ec4899, #a78bfa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .card-content {
+            padding: 2rem;
+            color: #f1f5f9;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(241, 245, 249, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .github-link:hover {
+            color: var(--neon-pink);
+            transform: translateX(5px);
+        }
+
+        .card-progress {
+            height: 4px;
+            background: rgba(236, 72, 153, 0.2);
+            margin-top: 1.5rem;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-value {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.7rem;
+            font-size: 0.75rem;
+            color: rgba(241, 245, 249, 0.6);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(236, 72, 153, 0.2);
+            color: var(--neon-pink);
+            border: 2px solid var(--neon-pink);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-button:hover {
+            background: var(--neon-pink);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 30px var(--neon-pink);
+        }
+
+        .carousel-button.prev { left: -25px; }
+        .carousel-button.next { right: -25px; }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2.5rem;
+        }
+
+        .indicator {
+            width: 30px;
+            height: 4px;
+            background: rgba(236, 72, 153, 0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .tech-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 10, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.21, 0.61, 0.35, 1);
+            z-index: 25;
+            border-top: 1px solid rgba(236, 72, 153, 0.4);
+        }
+
+        .carousel-card.is-active:hover .tech-details {
+            transform: translateY(0);
+        }
+
+        .tech-tag {
+            display: inline-block;
+            margin: 4px;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            background: rgba(236, 72, 153, 0.2);
+            border: 1px solid var(--neon-pink);
+            border-radius: 15px;
+            color: var(--neon-pink);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(30, 27, 75, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 20px 50px rgba(167, 139, 250, 0.3);
+        }
+
+        .skill-card h3 {
+            color: var(--neon-purple);
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+        }
+
+        .skill-card p {
+            line-height: 1.8;
+            color: rgba(241, 245, 249, 0.85);
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement {
+            background: rgba(30, 27, 75, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--neon-pink);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .achievement:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+            border-left-color: var(--neon-purple);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(30, 27, 75, 0.6);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neon-pink);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(15, 10, 30, 0.6);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Exo 2', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px var(--glow-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 1, 24, 0.9);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        footer p {
+            color: rgba(241, 245, 249, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .image-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-card {
+                min-width: 280px;
+                max-width: 280px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Neural Network Background -->
+    <div class="neural-network" id="neuralNetwork"></div>
+
+    <!-- AI Nodes - Replacing Particles -->
+    <div class="ai-nodes" id="aiNodes"></div>
+
+    <!-- Binary Rain Effect -->
+    <div class="binary-rain" id="binaryRain"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">MANTASHA BEG</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content scroll-animate-left">
+            <h1>MANTASHA BEG</h1>
+            <h2>Software Engineer & AI Enthusiast</h2>
+            <p>Passionate about building innovative AI-powered solutions and cutting-edge web applications. Specializing in Full-Stack Development, Machine Learning, and Generative AI technologies.</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mantashabeg/" target="_blank" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/Moonmakere" target="_blank" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://x.com/Shelovestech03" target="_blank" title="Twitter/X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://discord.com/channels/@me" target="_blank" title="Discord">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/tech.sheloves/" target="_blank" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://unstop.com/u/mantashabeg" target="_blank" title="Unstop">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.87-.93-7-5.42-7-9V8.3l7-3.5 7 3.5V11c0 3.58-3.13 8.07-7 9zm-1-13h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-image scroll-animate-right">
+            <div class="image-container">
+                <div class="glow-ring"></div>
+                <div class="profile-img">
+                    <img src="mantasha.png" alt="Mantasha Beg" onerror="this.parentElement.innerHTML='MB'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title scroll-animate">ABOUT ME</h2>
+        <div class="about-content scroll-animate-scale">
+            <p>
+                I am a passionate Software Engineer specializing in AI/ML, Full-Stack Development, and Generative AI applications. 
+                With hands-on experience in building intelligent systems using cutting-edge technologies like OpenAI GPT-4, Azure AI, 
+                and the MERN stack, I thrive on creating innovative solutions that solve real-world problems. I've participated in 
+                multiple hackathons, earning recognition for my work in AI-powered applications and have completed several impactful projects 
+                ranging from study mentors to financial assistants. My journey in tech is driven by curiosity, creativity, and a commitment 
+                to making a meaningful impact through code.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <h2 class="section-title scroll-animate">EXPERIENCE</h2>
+        <div class="experience-grid">
+            <div class="exp-card scroll-animate">
+                <h3>Microsoft Code;Without Barriers Hackathon 2K25</h3>
+                <div class="date">April – June 2025 | Remote</div>
+                <p><strong>Study Mentor Multi-Agent AI Assistant</strong></p>
+                <ul>
+                    <li>Built a GenAI-powered study assistant that extracts text from PDF and explains topics, generates quizzes, and creates personalized study plans using multi-agent architecture</li>
+                    <li>Enabled OCR-based content input, RAG with FAISS for accurate, contextual answers using Streamlit UI/UX design</li>
+                </ul>
+                <div class="tools">Tools: OpenAI GPT-4, Azure Document Intelligence, FAISS, Azure Blob Storage</div>
+            </div>
+
+            <div class="exp-card scroll-animate">
+                <h3>Kaggle Gen AI Intensive Course Capstone 2025Q1</h3>
+                <div class="date">April 4 – April 21, 2025 | Remote</div>
+                <p><strong>AI Tutor for Math</strong></p>
+                <ul>
+                    <li>Developed an AI tutor that extracts handwritten math problems from images using OCR and explains them step-by-step via GPT-4 with few-shot prompting</li>
+                    <li>Integrated OpenAI embeddings + vector search to recommend similar practice problems for personalized learning</li>
+                </ul>
+                <div class="tools">Tech Stack: Python, OpenAI GPT-4, Tesseract OCR, FAISS</div>
+            </div>
+
+            <div class="exp-card scroll-animate">
+                <h3>Microsoft Code;Without Barriers Hackathon 2K24</h3>
+                <div class="date">December – March 2024 | Remote</div>
+                <p><strong>Automate Investor-Startup Matching</strong></p>
+                <ul>
+                    <li>Developed an AI matchmaking platform for investors and startups, enabling real-time matching based on preferences</li>
+                    <li>Maintained a web application with integrated chat systems, improving efficiency by 20%</li>
+                </ul>
+                <div class="tools">Tools: HTML, CSS, JavaScript, Microsoft Azure Database, Power App</div>
+            </div>
+
+            <div class="exp-card scroll-animate">
+                <h3>NCode Sutram for AI Pvt. Ltd.</h3>
+                <div class="date">July – August 2023 | Allahabad, India</div>
+                <p><strong>ML using Python - Intern</strong></p>
+                <ul>
+                    <li>Completed summer internship focused on Machine Learning using Python</li>
+                    <li>Built a chatbot using Google Gemini API during the training program</li>
+                </ul>
+                <div class="tools">Tools: Gemini API, Python</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Carousel -->
+    <section class="section" id="projects">
+        <h2 class="section-title scroll-animate">PROJECTS</h2>
+        <div class="carousel-container scroll-animate-scale">
+            <div class="carousel-track">
+                <div class="carousel-card">
+                    <div class="card-image-container">💰</div>
+                    <div class="card-content">
+                        <h3 class="card-title">BachatBot</h3>
+                        <p class="card-description">AI-Powered Financial Assistant integrating OCR, RAG-based tax advisory, and personalized investment insights using Google Gemini, OpenCV, EasyOCR and LangChain.</p>
+                        <a href="https://github.com/Moonmakere/BachatBOT" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:95%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>DEPLOYED</span>
+                            <span>95% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">Next.js 15</div>
+                        <div class="tech-tag">React 19</div>
+                        <div class="tech-tag">Redux Toolkit</div>
+                        <div class="tech-tag">Tailwind CSS</div>
+                        <div class="tech-tag">JWT Auth</div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">🛍️</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Personal Shopper Bot</h3>
+                        <p class="card-description">AI shopping assistant that helps users find products, compare prices, and make informed purchase decisions using natural language processing and recommendation algorithms.</p>
+                        <a href="https://github.com/Moonmakere/Personal-Shopper-BOT" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:90%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>PHASE III</span>
+                            <span>90% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">OpenAI GPT</div>
+                        <div class="tech-tag">Flask</div>
+                        <div class="tech-tag">NLP</div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">📚</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Study Buddy AI Bot</h3>
+                        <p class="card-description">Intelligent study companion that helps students with homework, generates practice questions, and provides personalized learning recommendations using AI.</p>
+                        <a href="https://github.com/Moonmakere/Study-Buddy---AI-Bot" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:93%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>PHASE III</span>
+                            <span>93% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">Streamlit</div>
+                        <div class="tech-tag">GPT-4</div>
+                        <div class="tech-tag">FAISS</div>
+                        <div class="tech-tag">Azure AI</div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">🤝</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Investor-Startup Matching</h3>
+                        <p class="card-description">AI-powered platform that connects investors with startups based on preferences, industry focus, and investment criteria using intelligent matching algorithms.</p>
+                        <a href="https://github.com/Moonmakere/Automate-Investor-Startup-Matching" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:88%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>PHASE III</span>
+                            <span>88% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">HTML/CSS/JS</div>
+                        <div class="tech-tag">Azure Database</div>
+                        <div class="tech-tag">Power App</div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">📝</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Todo App</h3>
+                        <p class="card-description">Modern task management application with intuitive UI, priority levels, deadlines, and categories to help users organize their daily tasks efficiently.</p>
+                        <a href="https://github.com/Moonmakere/TodoApp" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:87%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>PHASE III</span>
+                            <span>87% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">React</div>
+                        <div class="tech-tag">Node.js</div>
+                        <div class="tech-tag">MongoDB</div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">📈</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Zerodha Trading Platform</h3>
+                        <p class="card-description">Stock trading platform using MERN stack with real-time market data, portfolio tracking, user authentication, and simulated buy/sell operations with secure data handling.</p>
+                        <a href="https://github.com/Moonmakere/Zerodha-app" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:88%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>PHASE III</span>
+                            <span>88% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">React</div>
+                        <div class="tech-tag">Node.js</div>
+                        <div class="tech-tag">MongoDB</div>
+                        <div class="tech-tag">Express.js</div>
+                        <div class="tech-tag">Material-UI</div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">🔧</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Go-Todo App</h3>
+                        <p class="card-description">ToDo application in Go (Golang) with RESTful APIs for CRUD operations. Implemented MongoDB for persistent task storage focusing on clean architecture and concurrency features.</p>
+                        <a href="https://github.com/Moonmakere/Go-Todo" target="_blank" class="github-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View on GitHub
+                        </a>
+                        <div class="card-progress">
+                            <div class="progress-value" style="width:85%"></div>
+                        </div>
+                        <div class="card-stats">
+                            <span>PHASE III</span>
+                            <span>85% COMPLETE</span>
+                        </div>
+                    </div>
+                    <div class="tech-details">
+                        <div class="tech-tag">Golang</div>
+                        <div class="tech-tag">MongoDB</div>
+                        <div class="tech-tag">RESTful API</div>
+                        <div class="tech-tag">Smarty</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-button prev">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:24px;height:24px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button class="carousel-button next">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:24px;height:24px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+
+            <div class="carousel-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title scroll-animate">TECHNICAL SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-card scroll-animate">
+                <h3>Languages</h3>
+                <p>C, Python, Java, Golang, HTML, CSS, JavaScript, SQL, MongoDB</p>
+            </div>
+            <div class="skill-card scroll-animate">
+                <h3>Frameworks</h3>
+                <p>React.js, Node.js, Nest.js, Next.js, Express.js, Streamlit, Bootstrap, Tailwind CSS</p>
+            </div>
+            <div class="skill-card scroll-animate">
+                <h3>AI & Cloud Tools</h3>
+                <p>FAISS, VectorDB, Azure Database, Power App, Generative-AI, Vertex-AI, Document Intelligence</p>
+            </div>
+            <div class="skill-card scroll-animate">
+                <h3>Developer Tools</h3>
+                <p>Canva, Figma, VS Code, Git, GitHub, Postman, AWS, Docker, Cloud Console</p>
+            </div>
+            <div class="skill-card scroll-animate">
+                <h3>No Code Tools</h3>
+                <p>N8N, Zapier</p>
+            </div>
+            <div class="skill-card scroll-animate">
+                <h3>Soft Skills</h3>
+                <p>Leadership, Communication, Team-player, Problem-solving, Creativity, Strategic Planning</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section" id="achievements">
+        <h2 class="section-title scroll-animate">ACHIEVEMENTS</h2>
+        <div class="achievements-grid">
+            <div class="achievement scroll-animate">🏆 Semi-Finalist in The AI Hiring Show - 2025</div>
+            <div class="achievement scroll-animate">🏆 Qualified Round-2 in Code For Bharat Season-2 2K25</div>
+            <div class="achievement scroll-animate">🏆 Ranked Top-12 in Startup-Conclave Pitch-a-thon 2025</div>
+            <div class="achievement scroll-animate">🏆 Ranked Top-10 in Xcelerate 3.0 Shiv Nadar University 2025</div>
+            <div class="achievement scroll-animate">🏆 Semi-finalists of InnoSpark (Case-Study) 2025</div>
+            <div class="achievement scroll-animate">🏆 Ranked Top-20 in Eurogrip Torq 3.0 2k25</div>
+            <div class="achievement scroll-animate">🏆 Round 2 in AI Blueprint for BHARAT [IIT Kharagpur] 2K24</div>
+            <div class="achievement scroll-animate">🏆 Qualified Level 2 in Flipkart 2.0 2024</div>
+            <div class="achievement scroll-animate">🏆 Ranked 5th in HackOnBlocks Hackathon 2024</div>
+            <div class="achievement scroll-animate">🥈 Won 2nd place in Microsoft Code:Without Barriers 2024</div>
+            <div class="achievement scroll-animate">🏆 Certified in Microsoft Hack-to-birth 2024</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title scroll-animate">CONTACT ME</h2>
+        <form class="contact-form scroll-animate-scale" id="contactForm" action="https://formspree.io/f/mldkaydn" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mantasha Beg. All rights reserved. | Built with passion and code 💜</p>
+    </footer>
+
+    <script>
+        // Create neural network lines
+        const neuralNetwork = document.getElementById('neuralNetwork');
+        for (let i = 0; i < 8; i++) {
+            const line = document.createElement('div');
+            line.className = 'neural-line';
+            line.style.width = Math.random() * 60 + 20 + '%';
+            line.style.left = Math.random() * 100 + '%';
+            line.style.top = Math.random() * 100 + '%';
+            line.style.transform = `rotate(${Math.random() * 360}deg)`;
+            line.style.animationDelay = Math.random() * 4 + 's';
+            neuralNetwork.appendChild(line);
+        }
+
+        // Create AI nodes (replacing particles)
+        const aiNodesContainer = document.getElementById('aiNodes');
+        for (let i = 0; i < 25; i++) {
+            const node = document.createElement('div');
+            node.className = 'ai-node';
+            node.style.left = Math.random() * 100 + '%';
+            node.style.top = Math.random() * 100 + '%';
+            node.style.animationDelay = Math.random() * 6 + 's';
+            node.style.animationDuration = Math.random() * 4 + 4 + 's';
+            aiNodesContainer.appendChild(node);
+        }
+
+        // Create binary rain effect
+        const binaryRain = document.getElementById('binaryRain');
+        for (let i = 0; i < 50; i++) {
+            const digit = document.createElement('div');
+            digit.className = 'binary-digit';
+            digit.textContent = Math.random() > 0.5 ? '1' : '0';
+            digit.style.left = Math.random() * 100 + '%';
+            digit.style.animationDelay = Math.random() * 8 + 's';
+            digit.style.animationDuration = Math.random() * 5 + 5 + 's';
+            binaryRain.appendChild(digit);
+        }
+
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-animate elements
+        document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Carousel functionality
+        const track = document.querySelector(".carousel-track");
+        const cards = Array.from(track.children);
+        const nextButton = document.querySelector(".carousel-button.next");
+        const prevButton = document.querySelector(".carousel-button.prev");
+        const container = document.querySelector(".carousel-container");
+        const indicators = document.querySelectorAll(".indicator");
+
+        let currentIndex = 0;
+        let cardWidth = cards[0].offsetWidth;
+        let cardMargin = parseInt(window.getComputedStyle(cards[0]).marginRight) * 2;
+
+        function initializeCarousel() {
+            cardWidth = cards[0].offsetWidth;
+            cardMargin = parseInt(window.getComputedStyle(cards[0]).marginRight) * 2;
+            const initialOffset = container.offsetWidth / 2 - cardWidth / 2;
+            track.style.transform = `translateX(${initialOffset}px)`;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.classList.remove("is-active", "is-prev", "is-next", "is-far-prev", "is-far-next");
+                if (index === currentIndex) {
+                    card.classList.add("is-active");
+                } else if (index === currentIndex - 1) {
+                    card.classList.add("is-prev");
+                } else if (index === currentIndex + 1) {
+                    card.classList.add("is-next");
+                } else if (index < currentIndex - 1) {
+                    card.classList.add("is-far-prev");
+                } else if (index > currentIndex + 1) {
+                    card.classList.add("is-far-next");
+                }
+            });
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle("active", index === currentIndex);
+            });
+        }
+
+        function moveToSlide(targetIndex) {
+            if (targetIndex < 0 || targetIndex >= cards.length) return;
+            const amountToMove = targetIndex * (cardWidth + cardMargin);
+            const containerCenter = container.offsetWidth / 2;
+            const cardCenter = cardWidth / 2;
+            const targetTranslateX = containerCenter - cardCenter - amountToMove;
+            track.style.transform = `translateX(${targetTranslateX - 25}px)`;
+            currentIndex = targetIndex;
+            updateCarousel();
+        }
+
+        nextButton.addEventListener("click", () => {
+            if (currentIndex < cards.length - 1) moveToSlide(currentIndex + 1);
+        });
+
+        prevButton.addEventListener("click", () => {
+            if (currentIndex > 0) moveToSlide(currentIndex - 1);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener("click", () => moveToSlide(index));
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+            if ((e.key === "ArrowRight" || e.key === "ArrowDown") && currentIndex < cards.length - 1) {
+                moveToSlide(currentIndex + 1);
+            } else if ((e.key === "ArrowLeft" || e.key === "ArrowUp") && currentIndex > 0) {
+                moveToSlide(currentIndex - 1);
+            }
+        });
+
+        // Window resize handler
+        window.addEventListener("resize", () => {
+            initializeCarousel();
+            moveToSlide(currentIndex);
+        });
+
+        // Contact form submission with Formspree
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Let Formspree handle the submission
+            // This will send the form data to mldkaydn@formspree.io
+            // After submission, Formspree will redirect or show success message
+        });
+
+        // Initialize
+        window.onload = () => {
+            initializeCarousel();
+            moveToSlide(0);
+        };
+    </script>
+</body>
+</html>
