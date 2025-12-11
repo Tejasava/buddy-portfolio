@@ -1,0 +1,25 @@
+{
+  "name": "mantasha-beg-portfolio",
+  "version": "1.0.0",
+  "description": "Mantasha Beg's portfolio - AI/ML Engineer & Software Developer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "ai",
+    "machine-learning",
+    "software-engineer"
+  ],
+  "author": "Mantasha Beg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tejasavasinghyadav-aiml/buddy-portfolio.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
